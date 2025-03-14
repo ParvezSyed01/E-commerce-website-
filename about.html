@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #2d2d2d;
+            line-height: 1.6;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        /* Story Section */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .story-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .story-grid,
+            .values-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 5rem 1rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+ <nav class="navbar">
+            <!-- Brand Logo and Dropdown -->
+            <div class="brand">
+                <a href="#" class="brand-link">Brand</a>
+                <div class="dropdown">
+                    <a href="samsung.html">Samsung</a>
+                    <a href="#">iPhone</a>
+                    <a href="#">OnePlus</a>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon" onclick="toggleCart()">🛒</a></li>
+            </ul>
+
+                    </nav>
+
+    <div class="about-container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Cellestial- Your Smartphone Destination</h1>
+            <p>Discover the latest mobile technology at unbeatable prices</p>
+            <a href="#shop" class="cta-button">Shop Now</a>
+        </section>
+
+        <!-- Our Story -->
+        <section class="section">
+            <h2>Our Mobile Journey</h2>
+            <div class="story-grid">
+                <div class="story-content">
+                    <p>Since 2012, Cellestial has been revolutionizing smartphone shopping. What began as a small tech blog has transformed into a leading online marketplace for mobile devices. We partner directly with manufacturers to bring you authentic devices with exclusive deals.</p>
+                    <p>Our expert team rigorously tests every smartphone, ensuring you get premium quality devices with verified performance. From flagship models to budget-friendly options, we've got your mobile needs covered.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1598327105666-5b893731aff6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Smartphone collection">
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="section">
+            <h2>Why Choose MobileTech?</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Latest Devices</h3>
+                    <p>New releases delivered within 24 hours</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Verified Authenticity</h3>
+                    <p>100% genuine products with full warranties</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Expert assistance whenever you need it</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="section">
+            <h2>Mobile Experts Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Team member">
+                    <h4>Michael Chen</h4>
+                    <p>Chief Technology Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team member">
+                    <h4>Sarah Johnson</h4>
+                    <p>Product Quality Lead</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team member">
+                    <h4>David Wilson</h4>
+                    <p>Customer Experience</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

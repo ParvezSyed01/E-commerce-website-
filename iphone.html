@@ -1,0 +1,135 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="brand">
+                <a href="index.html" class="brand-link">Brands</a>
+                <div class="dropdown">
+                    <a href="samsung.html">Samsung</a>
+                    <a href="iphone.html">iPhone</a>
+                    <a href="oneplus.html">OnePlus</a>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-page">
+        <h1>iPhone Series</h1>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="i1.jpg" alt="Iphone 16">
+                <h3>Iphone 16</h3>
+                <p>$1,299.99</p>
+                <button class="add-to-cart" data-product="Iphone 16" data-price="1,299.99" data-image="i1.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="i2.jpg" alt="Iphone 13">
+                <h3>Iphone 13</h3>
+                <p>$799.99</p>
+                <button class="add-to-cart" data-product="Iphone 13" data-price="$799.99" data-image="i2.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="i3.jpg" alt="Iphone 14">
+                <h3>Iphone 14</h3>
+                <p>$899.99</p>
+                <button class="add-to-cart" data-product="Iphone 14" data-price="899.99" data-image="i3.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 4-->
+            <div class="product-card">
+                <img src="i4.jpg" alt="Iphone XS">
+                <h3>Iphone XS</h3>
+                <p>$699.99</p>
+                <button class="add-to-cart" data-product="Iphone XS" data-price="699.99" data-image="i4.jpg">
+                    Add to Cart
+                </button>
+            </div>
+            <!-- Product 5-->
+            <div class="product-card">
+                <img src="i5.jpg" alt="Iphone XR">
+                <h3>Iphone XS</h3>
+                <p>$689.99</p>
+                <button class="add-to-cart" data-product="Iphone XS" data-price="689.99" data-image="i5.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 6-->
+            <div class="product-card">
+                <img src="i6.jpg" alt="Iphone 11">
+                <h3>Iphone 11</h3>
+                <p>$1099.99</p>
+                <button class="add-to-cart" data-product="Iphone 11" data-price="1099.99" data-image="i6.jpg">
+                    Add to Cart
+                </button>
+            </div>
+            <!-- Product 7-->
+            <div class="product-card">
+                <img src="i7.jpg" alt="Iphone 11 Pro Max">
+                <h3>Iphone 11 Pro Max</h3>
+                <p>$1199.99</p>
+                <button class="add-to-cart" data-product="Iphone 11 Pro Max" data-price="1199.99" data-image="i7.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        
+
+
+
+
+
+    </div></section>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                let product = button.dataset.product;
+                let price = parseFloat(button.dataset.price.replace(/[$,]/g, '')) || 0;
+                let image = button.dataset.image;
+
+                if (!product || !price || !image) {
+                    console.error('Invalid product data:', { product, price, image });
+                    return;
+                }
+
+                let existingItem = cart.find(item => item.product === product);
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ product, price, image, quantity: 1 });
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+            });
+        });
+    </script>
+
+
+</body></html>

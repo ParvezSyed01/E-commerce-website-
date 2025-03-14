@@ -1,0 +1,104 @@
+< lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<>
+    <header>
+        <nav class="navbar">
+            <div class="brand">
+                <a href="index.html" class="brand-link">Brands</a>
+                <div class="dropdown">
+                    <a href="samsung.html">Samsung</a>
+                    <a href="iphone.html">iPhone</a>
+                    <a href="oneplus.html">OnePlus</a>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-page">
+        <h1>iPhone Series</h1>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="o1.jpg" alt="OnePlus 13R">
+                <h3>OnePlus 13R</h3>
+                <p>$1,199.99</p>
+                <button class="add-to-cart" data-product="OnePlus 13R" data-price="1199.99" data-image="o1.jpg">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="o2.jpg" alt="OnePlus 12R">
+                <h3>OnePlus 12R</h3>
+                <p>$1,099.99</p>
+                <button class="add-to-cart" data-product="OnePlus 12R" data-price="1099.99" data-image="o2.jpg">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="o3.jpg" alt="OnePlus Nord 4">
+                <h3>OnePlus Nord 4</h3>
+                <p>$1,299.99</p>
+                <button class="add-to-cart" data-product="OnePlus Nord 4" data-price="1299.99" data-image="o3.jpg">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="o4.jpg" alt="OnePlus Nord CE 4">
+                <h3>OnePlus Nord CE 4</h3>
+                <p>$649.99</p>
+                <button class="add-to-cart" data-product="OnePlus Nord CE 4" data-price="649.99" data-image="o4.jpg">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="o5.jpg" alt="OnePlus 11">
+                <h3>OnePlus 11</h3>
+                <p>$1,499.99</p>
+                <button class="add-to-cart" data-product="OnePlus 11" data-price="1499.99" data-image="o5.jpg">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="o6.jpg" alt="OnePlus 13">
+                <h3>OnePlus 13</h3>
+                <p>$1,599.99</p>
+                <button class="add-to-cart" data-product="OnePlus 13" data-price="1599.99" data-image="o6.jpg">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="o7.jpg" alt="OnePlus 9">
+                <h3>OnePlus 9</h3>
+                <p>$1,399.99</p>
+                <button class="add-to-cart" data-product="OnePlus 9" data-price="1399.99" data-image="o7.jpg">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                let product = button.dataset.product;
+                let price = parseFloat(button.dataset.price.replace(/[$,]/g, '')) || 0;
+                let image = button.dataset.image;
+
+                if (!product || !price || !image) {
+                    console.error('Invalid product data:', { product, price, image });
+                    return;
+                }
+
+                let existingItem = cart.find(item => item.product === product);
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ product, price, image, quantity: 1 });
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+            });
+        });
+    </script>
+
+
+</body></html>

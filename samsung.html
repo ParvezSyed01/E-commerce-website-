@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="brand">
+                <a href="index.html" class="brand-link">Brands</a>
+                <div class="dropdown">
+                    <a href="samsung.html">Samsung</a>
+                    <a href="iphone.html">iPhone</a>
+                    <a href="oneplus.html">OnePlus</a>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-page">
+        <h1>Samsung Galaxy Series</h1>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="s25u.jpg" alt="Samsung Galaxy S25 Ultra">
+                <h3>Galaxy S25 Ultra</h3>
+                <p>$1,299.99</p>
+                <button class="add-to-cart" data-product="Galaxy S25 Ultra" data-price="1,299.99" data-image="s25u.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="s2.jpg" alt="Samsung Galaxy S25">
+                <h3>Samsung Galaxy S25</h3>
+                <p>$799.99</p>
+                <button class="add-to-cart" data-product="Samsung Galaxy S25" data-price="$799.99" data-image="s2.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="s3.jpg" alt="Samsung Galaxy S24 Ultra">
+                <h3>Samsung Galaxy S24 Ultra</h3>
+                <p>$1300</p>
+                <button class="add-to-cart" data-product="Samsung Galaxy S24 Ultra" data-price="$1,300"
+                    data-image="s3.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 4-->
+            <div class="product-card">
+                <img src="s4.jpg" alt="Samsung Galaxy S24+">
+                <h3>Samsung Galaxy S24+</h3>
+                <p>$699</p>
+                <button class="add-to-cart" data-product="Samsung Galaxy S24+" data-price="$699.99" data-image="s4.jpg">
+                    Add to Cart
+                </button>
+            </div>
+            <!-- Product 5-->
+            <div class="product-card">
+                <img src="s5.jpg" alt="Samsung Galaxy S23">
+                <h3>Samsung Galaxy S23</h3>
+                <p>$599.99</p>
+                <button class="add-to-cart" data-product="Samsung Galaxy S23" data-price="599.99" data-image="s5.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+            <!-- Product 6-->
+            <div class="product-card">
+                <img src="s6.jpg" alt="Samsung Galaxy A55">
+                <h3>Samsung Galaxy A55</h3>
+                <p>$459.99</p>
+                <button class="add-to-cart" data-product="Samsung Galaxy A55" data-price="459.99" data-image="s6.jpg">
+                    Add to Cart
+                </button>
+            </div>
+            <!-- Product 7-->
+            <div class="product-card">
+                <img src="s7.jpg" alt="Samsung Galaxy Z flip 6">
+                <h3>Samsung Galaxy Z flip 6</h3>
+                <p>$1799.99</p>
+                <button class="add-to-cart" data-product="Samsung Galaxy Z flip 6" data-price="1799.99"
+                    data-image="s7.jpg">
+                    Add to Cart
+                </button>
+            </div>
+            <!-- Product 8-->
+            <div class="product-card">
+                <img src="s8.jpg" alt="Samsung Galaxy Z flip 5">
+                <h3>Samsung Galaxy Z flip 5</h3>
+                <p>$1399.99</p>
+                <button class="add-to-cart" data-product="Samsung Galaxy Z flip 5" data-price="1399.99"
+                    data-image="s8.jpg">
+                    Add to Cart
+                </button>
+            </div>
+            <!-- Product 9-->
+            <div class="product-card">
+                <img src="s9.jpg" alt="Samsung Galaxy Z fold 6">
+                <h3>Samsung Galaxy Z fold 6</h3>
+                <p>$1899.99</p>
+                <button class="add-to-cart" data-product="Samsung Galaxy Z fold 6" data-price="1899.99"
+                    data-image="s9 .jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+
+
+
+
+
+    </section>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                let product = button.dataset.product;
+                let price = parseFloat(button.dataset.price.replace(/[$,]/g, '')) || 0;
+                let image = button.dataset.image;
+
+                if (!product || !price || !image) {
+                    console.error('Invalid product data:', { product, price, image });
+                    return;
+                }
+
+                let existingItem = cart.find(item => item.product === product);
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ product, price, image, quantity: 1 });
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+            });
+        });
+    </script>
+</body>
+
+</html>

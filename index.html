@@ -18,6 +18,8 @@
                     <a href="oneplus.html">OnePlus</a>
                 </div>
             </div>
+!-- Add this hamburger button here -->
+    <button class="mobile-menu-btn">☰</button>
             <!-- Navigation Links -->
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -98,6 +100,19 @@
         </div>
     </footer>
 
-    <script src="scrip.js"></script>
+    <script>
+// Mobile Menu Toggle
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.brand')) {
+        document.querySelector('.dropdown').style.display = 'none';
+    }
+});
+</script>
 </body>
 </html>

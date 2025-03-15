@@ -1,13 +1,12 @@
-/* ===== Base Styles ===== */
+</* General Styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: #333;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-/* ===== Navbar ===== */
+/* Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -15,9 +14,6 @@ body {
     padding: 1rem 2rem;
     background-color: #333;
     color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 .brand {
@@ -30,28 +26,6 @@ body {
     font-size: 1.5rem;
 }
 
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem;
-}
-
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* ===== Dropdown ===== */
 .dropdown {
     display: none;
     position: absolute;
@@ -64,8 +38,9 @@ body {
 }
 
 .dropdown a {
-    color: #333 !important;
+    color: #333;
     padding: 12px 16px;
+    text-decoration: none;
     display: block;
 }
 
@@ -73,52 +48,21 @@ body {
     background-color: #ddd;
 }
 
-/* ===== Hero Section ===== */
-.hero {
+.brand:hover .dropdown {
+    display: block;
+}
+
+.nav-links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 100px 20px;
-    background-color: #f9f9f9;
-    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
 }
 
-.hero-content {
-    max-width: 50%;
+.nav-links a {
+    color: white;
+    text-decoration: none;
 }
 
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* ===== Product Sections ===== */
-.showcase, .gallery {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.showcase-grid, .gallery-grid, .product-grid {
-    display: grid;
-    gap: 30px;
-    padding: 0 20px;
-}
-
-.product-card {
-    background-color: #f9f9f9;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.product-card img {
-    width: 100%;
-    height: auto;
-}
-
-/* ===== Cart Modal ===== */
 .cart-modal {
     display: none;
     position: fixed;
@@ -128,141 +72,498 @@ body {
     height: 100%;
     background-color: white;
     box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    padding: 20px;
+    color: #333;
 }
 
-/* ===== Footer ===== */
+.cart-modal.active {
+    display: block;
+}
+
+.close-modal {
+    cursor: pointer;
+    float: right;
+    font-size: 1.5rem;
+}
+
+.cart-icon {
+    color: white;
+    cursor: pointer;
+}
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 20px;
+    background-color: #f9f9f9;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero-content .btn {
+    background-color: #007aff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-content .btn:hover {
+    background-color: #005bb5;
+}
+
+.hero-image img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Product Showcase Section */
+.showcase {
+    padding: 20px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.showcase h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    margin: 15px 0 10px;
+}
+
+.product-card p {
+    font-size: 1.2rem;
+    color: #007aff;
+    margin-bottom: 15px;
+}
+
+.product-card button {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+    background-color: #005bb5;
+}
+/* Gallery Section */
+.gallery {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.gallery-item {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.gallery-item p {
+    font-size: 1.2rem;
+    color: #007aff; /* iPhone-like blue */
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+    background-color: #fff;
+}
+/* Footer Styles */
 .footer {
     background-color: #333;
-    color: white;
-    padding: 40px 20px;
+    color: #fff;
+    padding: 40px 20px 20px;
     margin-top: 50px;
 }
 
 .footer-content {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* ===== Mobile Responsiveness ===== */
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #007aff; /* iPhone-like blue */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #007aff; /* iPhone-like blue */
+}
+
+.footer-section p {
+    margin: 5px 0;
+    color: #ddd;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    color: #ddd;
+    font-size: 0.9rem;
+}
+/* Add these product styles to your existing CSS */
+.product-page {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Store</title>
+    <style>
+        /* Combined CSS Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        .navbar {
+            display: sticky;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand {
+            position: relative;
+        }
+
+        .brand-link {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 12px;
+            top: 100%;
+        }
+
+        .brand:hover .dropdown {
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 350px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .cart-modal-content {
+            background: white;
+            height: 100%;
+            padding: 20px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .add-to-cart {
+            background-color: #007aff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+
+     <style>
+/* Samsung Product Page CSS */
+.product-page {
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-page h1 {
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #1d1d1f;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    margin-bottom: 25px;
+    border-radius: 12px;
+}
+
+.product-card h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 15px 0;
+    color: #1d1d1f;
+}
+
+.product-card p {
+    font-size: 20px;
+    color: #6e6e73;
+    margin-bottom: 25px;
+}
+
+.add-to-cart {
+    background-color: #007aff;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.add-to-cart:hover {
+    background-color: #0063cc;
+    transform: scale(1.05);
+}
+
 @media (max-width: 768px) {
-    .navbar {
-        padding: 1rem;
-        flex-wrap: wrap;
-    }
-    
-    .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        margin-top: 1rem;
-        gap: 1rem;
-    }
-    
-    .mobile-menu-btn {
-        display: block;
-    }
-    
-    .hero {
-        padding: 50px 20px;
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .hero-content {
-        max-width: 100%;
-        margin-bottom: 30px;
-    }
-    
-    .showcase-grid, 
-    .gallery-grid, 
     .product-grid {
         grid-template-columns: 1fr;
+        padding: 0 10px;
     }
     
-    .cart-modal {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.5rem; }
-    
-    .footer-content {
-        flex-direction: column;
+    .product-page h1 {
+        font-size: 32px;
+        margin-bottom: 40px;
     }
     
-    .product-card button, 
-    .nav-links a {
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .product-card {
+        margin-bottom: 30px;
     }
-}
+}<a href="#" class="brand-link">Brand</a>
+        <div class="dropdown">
+            <a href="samsung.html">Samsung</a>
+            <a href="iphone.html">iPhone</a>
+            <a href="oneplus.html">OnePlus</a>
+        </div>
+    </div>
 
-/* ===== Desktop Enhancements ===== */
-@media (min-width: 1024px) {
-    .showcase-grid,
-    .gallery-grid,
-    .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-}
-/* Dropdown Styles */
-.brand {
-    position: relative;
-    display: inline-block;
-}
+    <!-- Add this hamburger button here -->
+    <button class="mobile-menu-btn">☰</button>
 
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #ffffff;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    min-width: 200px;
-    z-index: 1001;
-    border-radius: 8px;
-    padding: 10px 0;
-    margin-top: 5px;
-}
-
-.dropdown a {
-    color: #333333 !important;
-    padding: 12px 20px;
-    display: block;
-    text-decoration: none;
-    transition: background-color 0.2s;
-    font-size: 14px;
-}
-
-.dropdown a:hover {
-    background-color: #f5f5f7;
-}
-
-/* Desktop hover */
-@media (min-width: 769px) {
-    .brand:hover .dropdown {
-        display: block;
-    }
-}
-
-/* Mobile click */
-@media (max-width: 768px) {
-    .dropdown.active {
-        display: block;
-    }
-    
-    .dropdown {
-        width: 100%;
-        position: static;
-        margin-top: 10px;
-        box-shadow: none;
-        border: 1px solid #eeeeee;
-    }
-}
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html" class="cart-icon" onclick="toggleCart()">🛒</a></li>
+    </ul>
+</nav>

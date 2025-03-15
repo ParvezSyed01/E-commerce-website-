@@ -104,10 +104,15 @@
 // Dropdown functionality
 const brand = document.querySelector('.brand');
 const dropdown = document.querySelector('.dropdown');
+const brandLink = document.querySelector('.brand-link');
 
-// Toggle dropdown on click (mobile)
-brand.addEventListener('click', function(e) {
-    if (window.innerWidth <= 768) { // Mobile only
+function closeDropdown() {
+    dropdown.classList.remove('active');
+}
+
+// Mobile dropdown toggle
+brandLink.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
         e.preventDefault();
         dropdown.classList.toggle('active');
     }
@@ -116,20 +121,23 @@ brand.addEventListener('click', function(e) {
 // Close dropdown when clicking outside
 document.addEventListener('click', function(e) {
     if (!brand.contains(e.target)) {
-        dropdown.classList.remove('active');
+        closeDropdown();
     }
 });
 
 // Close dropdown on scroll
-window.addEventListener('scroll', function() {
-    dropdown.classList.remove('active');
-});
+window.addEventListener('scroll', closeDropdown);
 
 // Handle window resize
 window.addEventListener('resize', function() {
     if (window.innerWidth > 768) {
-        dropdown.classList.remove('active');
+        closeDropdown();
     }
+});
+
+// Prevent mobile menu toggle from affecting dropdown
+document.querySelector('.mobile-menu-btn').addEventListener('click', function(e) {
+    e.stopPropagation();
 });
 </script>
 </body>

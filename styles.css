@@ -63,29 +63,6 @@ body {
     text-decoration: none;
 }
 
-.cart-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background-color: white;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-    padding: 20px;
-    color: #333;
-}
-
-.cart-modal.active {
-    display: block;
-}
-
-.close-modal {
-    cursor: pointer;
-    float: right;
-    font-size: 1.5rem;
-}
-
 .cart-icon {
     color: white;
     cursor: pointer;
@@ -240,80 +217,192 @@ body {
     text-align: center;
     background-color: #fff;
 }
+
 /* Footer Styles */
-.footer {
-    background-color: #333;
-    color: #fff;
-    padding: 40px 20px 20px;
-    margin-top: 50px;
+.site-footer {
+    background: #1d1d1f;
+    color: #86868b;
+    padding: 4rem 2rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.footer-section {
-    flex: 1;
-    min-width: 200px;
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
 }
 
-.footer-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #007aff; /* iPhone-like blue */
+.footer-heading {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.5rem;
 }
 
-.footer-section ul {
+.footer-links {
     list-style: none;
     padding: 0;
 }
 
-.footer-section ul li {
-    margin-bottom: 10px;
+.footer-links li {
+    margin-bottom: 0.8rem;
 }
 
-.footer-section ul li a {
-    color: #fff;
+.footer-links a {
+    color: #86868b;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 0.9rem;
+    transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative;
 }
 
-.footer-section ul li a:hover {
-    color: #007aff; /* iPhone-like blue */
+.footer-links a:hover {
+    color: #0071e3;
 }
 
-.footer-section p {
-    margin: 5px 0;
-    color: #ddd;
+.footer-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #0071e3;
+    transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.social-icons {
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.social-links {
     display: flex;
-    gap: 10px;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
-.social-icon img {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s ease;
+.social-icon {
+    color: #86868b;
+    font-size: 1.4rem;
+    transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.social-icon:hover img {
-    transform: scale(1.2);
+.social-icon:hover {
+    color: #0071e3;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid #333;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: #0071e3;
+    box-shadow: 0 0 0 3px rgba(0,113,227,0.3);
+}
+
+.newsletter-button {
+    background: #0071e3;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.newsletter-button:hover {
+    background: #0077ed;
+    transform: scale(0.98);
+}
+
+.app-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.app-badge {
+    display: block;
+    width: 160px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.app-badge:hover {
+    transform: scale(1.03);
+}
+
+.app-badge img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
 .footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #444;
-    color: #ddd;
-    font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.8rem;
+    color: #86868b;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .app-badges {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
 }
 /* Add these product styles to your existing CSS */
 .product-page {
@@ -342,123 +431,6 @@ body {
     object-fit: contain;
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phone Store</title>
-    <style>
-        /* Combined CSS Styles */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
-        }
-
-        .navbar {
-            display: sticky;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .brand {
-            position: relative;
-        }
-
-        .brand-link {
-            text-decoration: none;
-            color: #1d1d1f;
-            font-weight: 600;
-            font-size: 24px;
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            border-radius: 12px;
-            top: 100%;
-        }
-
-        .brand:hover .dropdown {
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #1d1d1f;
-            font-weight: 500;
-        }
-
-        .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 350px;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-
-        .cart-modal-content {
-            background: white;
-            height: 100%;
-            padding: 20px;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 40px;
-        }
-
-        .product-card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 18px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            border-radius: 12px;
-        }
-
-        .add-to-cart {
-            background-color: #007aff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 500;
-            margin-top: 15px;
-        }
-
-     <style>
 /* Samsung Product Page CSS */
 .product-page {
     padding: 60px 40px;
